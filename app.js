@@ -23,10 +23,19 @@ mongoose.connect('mongodb://localhost/celke', {
 
 
 //Criando rotas
+//listando dados do BD
 app.get("/", (req, res) => {
-    return res.json({titulo: "Como criar API"});
+    Artigo.find({}).then((artigo) => {
+        return res.json(artigo);
+    }).catch((erro) => {
+        return res.status(400).json({
+            error: true,
+            message: "Nenhum artigo foi encontrado!"
+        })
+    })
 });
 
+//registering on BD
 app.post("/artigo", (req, res) => {
     //registrando no banco
     const artigo = Artigo.create(req.body, (err) =>{
