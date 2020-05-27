@@ -1,26 +1,26 @@
-Criar o arquivo package
-npm init
+-------------------------------------
+Como iniciar a API
+-------------------------------------
+Para instalar todas as dependências:  
+"npm install"
 
-//Instalando Express (Gerencia as requisições, rotas e URLs, etc...)
+Para rodar o projeto:  
+"nodemon app.js"
+
+-------------------------------------
+Techs
+-------------------------------------
+**Express:** Gerencia as requisições, rotas e URLs, etc...  
 npm install express
 
-//Instalar o módulo para reiniciar o servidor sempre que houver alteração no código fonte
+**Nodemon:** Reinicia o servidor sempre que houver alteração no código fonte.  
 npm install -D nodemon
 
-//Instalar o MongoDB
+**MongoDB:** Banco de dados NoSQL.  
 npm install --save mongodb
 
-//Instalar o Mongoose. Ele traduz os dados do banco para objetos js para que possam ser utilizados na nossa aplicação
+**Mongoose:** Traduz os dados do banco para objetos js para que possam ser utilizados na nossa aplicação.  
 npm install --save mongoose
 
-//Instalar o CORS para proteger as requisições para a nossa API
+**CORS:** Serve para proteger as requisições para a nossa API.  
 npm install cors
-
--------------------------------------
-Como rodar o projeto
--------------------------------------
-//Para instalar todas as dependências
-npm install
-
-//Rodar o projeto
-nodemon app.js
