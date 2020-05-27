@@ -84,6 +84,21 @@ app.put("/artigo/:id", (req, res) => {
     });
 });
 
+//Deletar artigo pelo ID
+app.delete("/artigo/:id", (req, res) => {
+    const artigo = Artigo.deleteOne({_id: req.params.id}, (err) => {
+        if(err) return res.status(400).json({
+            error: true,
+            message: "Erro ao deletar artigo"
+        });
+
+        return res.json({
+            error: false,
+            message: "Artigo deletado com sucesso"
+        });
+    });
+});
+
 //Criando servidor
 app.listen(8080, () => {
     console.log("Servidor iniciado na porta 8080");
