@@ -2,6 +2,8 @@
 const express = require('express');
 //incluindo mongoose
 const mongoose = require('mongoose');
+//incluindo o cors
+const cors = require('cors');
 //incluindo models
 require("./models/Artigo");
 const Artigo = mongoose.model('artigo');
@@ -10,6 +12,16 @@ const app = express();
 
 //permitir express a trabalhar com json
 app.use(express.json());
+
+//usando o cors
+app.use((req, res, next) => {
+    //o header serve para mostrar qual site pode fazer requisições
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
+    app.use(cors());
+    //o next deixa passar
+    next();
+});
 
 //Conexão com o bd
 mongoose.connect('mongodb://localhost/celke', {

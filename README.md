@@ -13,6 +13,9 @@ npm install --save mongodb
 //Instalar o Mongoose. Ele traduz os dados do banco para objetos js para que possam ser utilizados na nossa aplicação
 npm install --save mongoose
 
+//Instalar o CORS para proteger as requisições para a nossa API
+npm install cors
+
 -------------------------------------
 Como rodar o projeto
 -------------------------------------
