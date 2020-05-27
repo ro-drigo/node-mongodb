@@ -68,6 +68,21 @@ app.post("/artigo", (req, res) => {
     })
 });
 
+//Editar artigo pelo ID
+app.put("/artigo/:id", (req, res) => {
+    //Usamos o updateOne para estar editando um elemento
+    const artigo = Artigo.updateOne({_id: req.params.id}, req.body, (err) => {
+        if(err) return res.status(400).json({
+            error: true,
+            message: "Erro na edição do arquivo"
+        });
+
+        return res.json({
+            error: false,
+            message: "Arquivo editado com sucesso"
+        });
+    });
+});
 
 //Criando servidor
 app.listen(8080, () => {
