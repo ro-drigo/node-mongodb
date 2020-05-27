@@ -35,6 +35,22 @@ app.get("/", (req, res) => {
     })
 });
 
+//Visualizando artigo pelo ID
+app.get("/artigo/:id", (req, res) => {
+    //console.log(req.params.id);
+    //Usamos o findOne para retornar um elemento do banco
+    Artigo.findOne({_id:req.params.id}).then((artigo) => {
+        return res.json(artigo);
+    }).catch((erro) => {
+        return res.status(400).json({
+            error: true,
+            message: "Nenhum artigo encontrado"
+        })
+    })
+
+    //return res.json({id: req.params.id});
+})
+
 //registering on BD
 app.post("/artigo", (req, res) => {
     //registrando no banco
@@ -45,7 +61,7 @@ app.post("/artigo", (req, res) => {
             message: "Error: Artigo não foi cadastrado com sucesso"
         });
 
-        return res.status(400).json({
+        return res.status(200).json({
             error: false,
             message: "Artigo foi cadastrado com sucesso"
         })
